@@ -11,22 +11,14 @@ struct FrameworkDetailView: View {
     
     var framework: Framework
     @Binding var isShowingDetailView: Bool
+    @Binding var isGridView: Bool
     @State private var isShowingSafariView = false
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button {
-                    isShowingDetailView = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44)
-                }
+            if isGridView {
+                XDismissButton(isShowingDetailView: $isShowingDetailView)
             }
-            .padding()
             
             Spacer()
             
@@ -52,6 +44,7 @@ struct FrameworkDetailView: View {
 struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
         FrameworkDetailView(framework: MockData.sampleFramework,
-                            isShowingDetailView: .constant(false))
+                            isShowingDetailView: .constant(false), isGridView: .constant(true))
+            .preferredColorScheme(.dark)
     }
 }

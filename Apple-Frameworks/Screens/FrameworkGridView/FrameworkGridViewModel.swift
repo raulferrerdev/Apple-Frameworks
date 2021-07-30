@@ -10,9 +10,15 @@ import SwiftUI
 final class FrameworGridViewModel: ObservableObject {
     
     var selectedFramework: Framework? {
-        didSet {
-            isShowingDetailView = true
-        }
+        didSet { isShowingDetailView = true }
     }
+    
     @Published var isShowingDetailView = false
+    @Published var isGridView = true
+
+    let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
+    func toggleGridView() {
+        isGridView.toggle()
+    }
 }
