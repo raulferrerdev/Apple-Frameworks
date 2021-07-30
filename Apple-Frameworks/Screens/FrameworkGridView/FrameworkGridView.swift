@@ -58,7 +58,7 @@ struct FrameworkGridView: View {
                     Button {
                         viewModel.toggleGridView()
                     } label: {
-                        Image(systemName: "square.grid.3x3")
+                        Image(systemName: "list.bullet")
                             .foregroundColor(Color(.label))
                             .imageScale(.large)
                             .frame(width: 44, height: 44)
